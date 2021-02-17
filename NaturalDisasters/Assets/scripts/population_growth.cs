@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class population_growth : MonoBehaviour
 {
-
+  public bool largepop;
+  public   bool hugepop;
+    public  bool smallpop; 
     public float populationGrowth;
     public float popincrease;
     public float pop;
@@ -54,10 +56,47 @@ public class population_growth : MonoBehaviour
         {
             foodsupply = 0;
         }
-        if(pop == 100)
+      //  popullationcontrol();
+    }
+
+
+  public void  popullationcontrol()
+    {
+      if(pop > 100)
         {
+            smallpop = true;
 
         }
+
+      if(smallpop == true)
+        {
+            maxfoodcooldown = 60;
+        }
+      if(pop == 100)
+        {
+            smallpop = false;
+            hugepop = false;
+            largepop = true;
+
+        }
+
+      if(pop == 150)
+        {
+            hugepop = true;
+        }
+
+      if(hugepop == true)
+        {
+            smallpop = false;
+            largepop = false;
+            foodcooldown = 300;
+        }
+      if(largepop == true)
+        {
+            maxfoodcooldown = 150;
+        }
+
+
     }
 
 

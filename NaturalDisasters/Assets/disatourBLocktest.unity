@@ -809,16 +809,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: foodsupply
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: populationGrowth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8062050506227628885, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
       propertyPath: m_Name
