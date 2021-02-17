@@ -12,23 +12,29 @@ public class population_growth : MonoBehaviour
    // public float research;
   //  public float reaCooldown;
     public float foodcooldown;
+     float maxfoodcooldown;
     public float FoodAllocuation;
     public float researchers;
     public float fooddecrease;
+    public float foodincrease;
     public float unemployed;
     public float farmers;
-    
+    public float researchPoints;
 
     void Start()
     {
         unemployed = pop;
+        maxfoodcooldown = 60;
+        foodcooldown = maxfoodcooldown;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-      //  popincrease = popincrease - (foodsupply / 2);
+
+        researchPoints += researchers * Time.deltaTime;        
+        //  popincrease = popincrease - (foodsupply / 2);
         foodcooldown -= farmers *Time.deltaTime;
 
        //populationGrowth += popincrease * Time.deltaTime + food * Time.deltaTime;
@@ -44,7 +50,14 @@ public class population_growth : MonoBehaviour
         {
             foodStorageChange();
         }
+        if(foodsupply <=0)
+        {
+            foodsupply = 0;
+        }
+        if(pop == 100)
+        {
 
+        }
     }
 
 
@@ -80,9 +93,10 @@ public class population_growth : MonoBehaviour
         }
         if(foodsupply < pop)
         {
-            fooddecrease = Random.Range(0, 4);
-
+            fooddecrease = Random.Range(0, 8);
+            foodincrease = Random.Range(0, 12);
             foodsupply -= fooddecrease;
+            foodsupply += foodincrease;
             foodcooldown = 100;
         }
         

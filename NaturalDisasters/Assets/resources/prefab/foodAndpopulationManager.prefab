@@ -43,13 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832ffe30fed1ad54a9bbff6b9e02d9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  populationGrowth: 0
+  populationGrowth: 100
   popincrease: 10
   pop: 1
-  foodsupply: 10
-  foodcooldown: 60
+  foodsupply: 20
+  foodcooldown: 0
   FoodAllocuation: 10
-  researchallocution: 0
+  researchers: 2
   fooddecrease: 0
+  foodincrease: 0
   unemployed: 0
-  farmers: 0
+  farmers: 2
+  researchPoints: 0
