@@ -95,6 +95,10 @@ public class population_growth : MonoBehaviour
         {
             maxfoodcooldown = 150;
         }
+      if(researchers+farmers >= pop)
+        {
+
+        }
 
 
     }
@@ -152,12 +156,33 @@ public class population_growth : MonoBehaviour
 
         
     }
-     public void CreatSceinces()
+    public void fireFarmer()
+    {
+
+        if (unemployed <= pop && unemployed != 0)
+        {
+            farmers--;
+            unemployed++;
+        }
+
+
+
+    }
+    public void CreatSceinces()
     {
         if (unemployed <= pop && unemployed != 0)
         {
            researchers++;
             unemployed--;
+        }
+    }
+    public void fireresearcher()
+    {
+
+        if (unemployed <= pop && unemployed != 0)
+        {
+            researchers--;
+            unemployed++;
         }
     }
 }
