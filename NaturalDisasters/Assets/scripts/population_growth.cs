@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class population_growth : MonoBehaviour
 {
@@ -22,6 +24,7 @@ public class population_growth : MonoBehaviour
     public float unemployed;
     public float farmers;
     public float researchPoints;
+  //  public float maxfloat; 
 
     void Start()
     {
@@ -41,7 +44,7 @@ public class population_growth : MonoBehaviour
 
        //populationGrowth += popincrease * Time.deltaTime + food * Time.deltaTime;
         populationGrowth -= popincrease  * Time.deltaTime;
-
+      //  maxfloat = researchers + farmers + unemployed;
 
         //reaCooldown = +researchallocution * Time.deltaTime;
         if (populationGrowth <= 0)
@@ -57,6 +60,15 @@ public class population_growth : MonoBehaviour
             foodsupply = 0;
         }
       //  popullationcontrol();
+     // if(farmers <=0)
+        //{
+           // farmers = 0;
+        //}
+
+      //if(researchers<= 0)
+        //{
+            //researchers = 0;
+        //}
     }
 
 
@@ -95,7 +107,7 @@ public class population_growth : MonoBehaviour
         {
             maxfoodcooldown = 150;
         }
-      if(researchers+farmers >= pop)
+     // if(researchers+farmers >= pop)
         {
 
         }
@@ -149,8 +161,15 @@ public class population_growth : MonoBehaviour
         FoodAllocuation++;
         if(unemployed <= pop && unemployed != 0)
         {
-            farmers++;
-            unemployed--;
+         
+            
+          //  if(maxfloat <= pop)
+            
+                farmers++;
+                unemployed--;
+                Debug.Log("yourer hired");
+            
+           
         }
         
 
@@ -159,10 +178,14 @@ public class population_growth : MonoBehaviour
     public void fireFarmer()
     {
 
-        if (unemployed <= pop && unemployed != 0)
+        if (farmers > 0)
         {
             farmers--;
             unemployed++;
+        }
+        else
+        {
+            Debug.Log("no farmers");
         }
 
 
@@ -179,10 +202,15 @@ public class population_growth : MonoBehaviour
     public void fireresearcher()
     {
 
-        if (unemployed <= pop && unemployed != 0)
+       
+        if(researchers > 0)
         {
             researchers--;
             unemployed++;
+        }
+        else
+        {
+            Debug.Log("no farmers");
         }
     }
 }
