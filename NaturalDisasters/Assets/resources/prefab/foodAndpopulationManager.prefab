@@ -44,14 +44,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   populationGrowth: 100
+  populationcooldown: 100
   popincrease: 10
-  pop: 1
-  foodsupply: 20
+  pop: 30
+  unemployed: 0
+  populationboom: 0
+  populationdecrease: 0
+  chance: 0
+  foodsupply: 100
   foodcooldown: 0
-  FoodAllocuation: 10
-  researchers: 2
+  maxfoodcooldown: 0
   fooddecrease: 0
   foodincrease: 0
-  unemployed: 0
-  farmers: 2
+  farmers: 0
+  sickness: 0
+  sicknessdecrease: 0
+  sicknessstart: 300
+  Medical: 0
+  researchers: 0
   researchPoints: 0
+  miltary: 0
+  defense: 0

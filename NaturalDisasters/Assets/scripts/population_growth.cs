@@ -10,26 +10,42 @@ public class population_growth : MonoBehaviour
   //public bool largepop;
   //public   bool hugepop;
     //public  bool smallpop; 
+    [Header("population")]
     public float populationGrowth;
     public float populationcooldown;
     public float popincrease;
     public float pop;
+    public float unemployed;
+    public float populationboom;
+    public float populationdecrease;
+    public float chance;
+    [Header("food")]
     public float foodsupply;
    // public float research;
   //  public float reaCooldown;
     public float foodcooldown;
    public  float maxfoodcooldown;
-    public float FoodAllocuation;
-    public float researchers;
+   // public float FoodAllocuation;
+   
     public float fooddecrease;
     public float foodincrease;
-    public float unemployed;
+  
     public float farmers;
+
+
+    [Header("sickness &doctor")]
+    public float sickness;
+    public float sicknessdecrease;
+    public float sicknessstart;
+    public float Medical;
+    public float researchers;
     public float researchPoints;
-    public float populationboom;
-    public float populationdecrease;
-    public float chance;
-  //  public float maxfloat; 
+    [Header("miltary & defense")]
+    public float miltary;
+    public float defense;
+  
+  
+    //  public float maxfloat; 
 
     void Start()
     {
@@ -37,22 +53,22 @@ public class population_growth : MonoBehaviour
         maxfoodcooldown = 60;
         foodcooldown = maxfoodcooldown;
         populationGrowth = populationcooldown;
+        sickness = sicknessstart;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        researchPoints += researchers * Time.deltaTime;        
-        //  popincrease = popincrease - (foodsupply / 2);
+        //sicknessdecrease =  
+        researchPoints -= researchers * Time.deltaTime;
+        defense = miltary * 10;
         foodcooldown -= farmers *Time.deltaTime;
-        unemployed = pop - farmers - researchers;
-       //populationGrowth += popincrease * Time.deltaTime + food * Time.deltaTime;
+        unemployed = pop - farmers - researchers - Medical -miltary;
+       
         populationGrowth -= popincrease  * Time.deltaTime;
-      //  maxfloat = researchers + farmers + unemployed;
-
-        //reaCooldown = +researchallocution * Time.deltaTime;
+        sickness -= sicknessdecrease * Time.deltaTime;
+     
         if (populationGrowth <= 0)
         {
             CityGetBigger();
@@ -65,16 +81,12 @@ public class population_growth : MonoBehaviour
         {
             foodsupply = 0;
         }
-      //  popullationcontrol();
-     // if(farmers <=0)
-        //{
-           // farmers = 0;
-        //}
-
-      //if(researchers<= 0)
-        //{
-            //researchers = 0;
-        //}
+        if(unemployed <= 0)
+        {
+            unemployed = 0;
+        }
+      
+             
     }
 
 
@@ -88,16 +100,22 @@ public class population_growth : MonoBehaviour
        //
        
 
-        if (foodsupply == pop)
+        if (foodsupply >= pop)
         {
 
-           // populationcooldown++;
+            populationcooldown--;
             populationGrowth = populationcooldown;
-            populationcooldown++;
+            populationcooldown--;
             foodsupply -= pop;
 
             pop += 20;
             // babyboom();
+            if(populationcooldown <= 0)
+            {
+                populationcooldown = 100;
+            }
+            
+            
             chance = Random.Range(0, 6);
             if(chance == 4)
             {
@@ -108,12 +126,13 @@ public class population_growth : MonoBehaviour
         else
         {
             foodsupply -= pop;
-           // populationGrowth--;
+            populationGrowth++;
             populationGrowth = populationcooldown;
-            populationGrowth--;
+            populationGrowth++;
             fooddecrease = Random.Range(0, 100);
 
             pop -= fooddecrease;
+            famine();
             checklosecondtion();
 
         }
@@ -141,7 +160,7 @@ public class population_growth : MonoBehaviour
     }
     public  void babyboom()
     {
-        populationboom = Random.Range(0, 50);
+        populationboom = Random.Range(0, pop);
         pop += populationboom;
     }
     public void foodStorageChange()
@@ -167,7 +186,7 @@ public class population_growth : MonoBehaviour
     }
     public void workinfamr()
     {
-        FoodAllocuation++;
+      //  FoodAllocuation++;
         if(unemployed <= pop && unemployed != 0)
         {
          
@@ -175,7 +194,7 @@ public class population_growth : MonoBehaviour
           //  if(maxfloat <= pop)
             
                 farmers++;
-                unemployed--;
+             //   unemployed--;
                 Debug.Log("yourer hired");
             
            
@@ -190,7 +209,7 @@ public class population_growth : MonoBehaviour
         if (farmers > 0)
         {
             farmers--;
-            unemployed++;
+          //  unemployed++;
         }
         else
         {
@@ -205,7 +224,7 @@ public class population_growth : MonoBehaviour
         if (unemployed <= pop && unemployed != 0)
         {
            researchers++;
-            unemployed--;
+          //  unemployed--;
         }
     }
     public void fireresearcher()
@@ -215,14 +234,38 @@ public class population_growth : MonoBehaviour
         if(researchers > 0)
         {
             researchers--;
-            unemployed++;
+          //  unemployed++;
         }
         else
         {
             Debug.Log("no farmers");
         }
     }
-
+    public void hiredoctors() {
+        if (unemployed <= pop && unemployed != 0)
+        
+        {
+            
+            Medical++;
+        
+        
+        
+        }
+          
+    
+    
+    }
+    public void fireDoctors()
+    {
+        Medical--;
+    }
+    public void miltaryincrease()
+    {
+        if (unemployed <= pop && unemployed != 0)
+        {
+          //++;
+        }
+    }
     public void checklosecondtion()
     {
        if(pop <= 0)
@@ -234,5 +277,6 @@ public class population_growth : MonoBehaviour
     {
         populationdecrease = Random.Range(0, pop);
         pop -= populationdecrease;
+        checklosecondtion();
     }
 }
