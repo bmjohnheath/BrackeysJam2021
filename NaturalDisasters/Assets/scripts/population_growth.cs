@@ -160,16 +160,7 @@ public class population_growth : MonoBehaviour
         
         
         
-        //if(foodsupply >= 0)
-        //{
-        //    Debug.Log("city got bigger");
-
-
-        //}
-        //if(foodsupply <= -1)
-        //{
-        //    Debug.Log("city got smaller");
-        //}
+       
         
     }
     public  void babyboom()
@@ -179,23 +170,12 @@ public class population_growth : MonoBehaviour
     }
     public void foodStorageChange()
     {
-        //foodcooldown = 100;
-       // if(foodsupply >= pop)
-        //{
-            // CityGetBigger()
+      
 
             foodsupply += 30;
             foodcooldown = maxfoodcooldown ;
         maxfoodcooldown++;
-        //}
-        //if(foodsupply < pop)
-        //{
-            //fooddecrease = Random.Range(0, 8);
-            //foodincrease = Random.Range(0, 12);
-            //foodsupply -= fooddecrease;
-            //foodsupply += foodincrease;
-            //foodcooldown = 100;
-        //}
+      
         
     }
     public void workinfamr()
@@ -205,12 +185,10 @@ public class population_growth : MonoBehaviour
         {
          
             
-          //  if(maxfloat <= pop)
+        
             
                 farmers++;
-             //   unemployed--;
-               // Debug.Log("yourer hired");
-            
+           
            
         }
         

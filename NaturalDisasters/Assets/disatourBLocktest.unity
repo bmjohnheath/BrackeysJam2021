@@ -1046,7 +1046,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 66859033}
-        m_MethodName: fireresearcher
+        m_MethodName: createeducated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2889,12 +2889,27 @@ PrefabInstance:
     - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
       propertyPath: pop
-      value: 1000
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
       propertyPath: Medical
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: foodsupply
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: sicknessdecrease
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: deathFromsicknessmultiplyer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8062050506227628885, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
