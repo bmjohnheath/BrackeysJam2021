@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class population_growth : MonoBehaviour
@@ -26,6 +27,7 @@ public class population_growth : MonoBehaviour
     public float farmers;
     public float researchPoints;
     public float populationboom;
+    public float populationdecrease;
     public float chance;
   //  public float maxfloat; 
 
@@ -45,7 +47,7 @@ public class population_growth : MonoBehaviour
         researchPoints += researchers * Time.deltaTime;        
         //  popincrease = popincrease - (foodsupply / 2);
         foodcooldown -= farmers *Time.deltaTime;
-
+        unemployed = pop - farmers - researchers;
        //populationGrowth += popincrease * Time.deltaTime + food * Time.deltaTime;
         populationGrowth -= popincrease  * Time.deltaTime;
       //  maxfloat = researchers + farmers + unemployed;
@@ -81,16 +83,17 @@ public class population_growth : MonoBehaviour
 
     public void CityGetBigger()
     {
-        pop += foodsupply;
-        unemployed += foodsupply;
+        pop += popincrease;
+       // unemployed += foodsupply;
        //
        
 
         if (foodsupply == pop)
         {
 
-            populationcooldown++;
+           // populationcooldown++;
             populationGrowth = populationcooldown;
+            populationcooldown++;
             foodsupply -= pop;
 
             pop += 20;
@@ -105,12 +108,14 @@ public class population_growth : MonoBehaviour
         else
         {
             foodsupply -= pop;
-            populationGrowth--;
+           // populationGrowth--;
             populationGrowth = populationcooldown;
+            populationGrowth--;
             fooddecrease = Random.Range(0, 100);
 
             pop -= fooddecrease;
             checklosecondtion();
+
         }
         
         
@@ -224,5 +229,10 @@ public class population_growth : MonoBehaviour
         {
             Debug.Log("you lose game over");
         }
+    }
+    public void famine()
+    {
+        populationdecrease = Random.Range(0, pop);
+        pop -= populationdecrease;
     }
 }
