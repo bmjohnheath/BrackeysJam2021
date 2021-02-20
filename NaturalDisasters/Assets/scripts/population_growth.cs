@@ -33,13 +33,16 @@ public class population_growth : MonoBehaviour
     public float farmers;
 
 
-    [Header("sickness &doctor")]
+    [Header("sickness &doctor & education")]
     public float sickness;
     public float sicknessdecrease;
     public float sicknessstart;
     public float Medical;
-    public float researchers;
+    public float education;
     public float researchPoints;
+    public float educated;
+    public float deathfromsickness;
+    public float deathFromsicknessmultiplyer;
     [Header("miltary & defense")]
     public float miltary;
     public float defense;
@@ -61,10 +64,10 @@ public class population_growth : MonoBehaviour
     void Update()
     {
         //sicknessdecrease =  
-        researchPoints -= researchers * Time.deltaTime;
+        researchPoints += 10*Time.deltaTime + education * Time.deltaTime;
         defense = miltary * 10;
         foodcooldown -= farmers *Time.deltaTime;
-        unemployed = pop - farmers - researchers - Medical -miltary;
+        unemployed = pop - farmers - education - Medical -miltary-educated;
        
         populationGrowth -= popincrease  * Time.deltaTime;
         sickness -= sicknessdecrease * Time.deltaTime;
@@ -85,12 +88,23 @@ public class population_growth : MonoBehaviour
         {
             unemployed = 0;
         }
-      
+        if(sickness <= 0)
+        {
+            sickness = sicknessstart;
+            deathfromtheflu();
+        }
              
     }
 
 
- 
+    public void deathfromtheflu()
+    {
+        //deathfromsickness = Random.RandomRange(1, 11);
+        deathfromsickness = Random.Range(1, 11);
+        pop -= deathfromsickness * deathFromsicknessmultiplyer-Medical;
+        checklosecondtion();
+
+    }
 
 
     public void CityGetBigger()
@@ -195,7 +209,7 @@ public class population_growth : MonoBehaviour
             
                 farmers++;
              //   unemployed--;
-                Debug.Log("yourer hired");
+               // Debug.Log("yourer hired");
             
            
         }
@@ -213,7 +227,7 @@ public class population_growth : MonoBehaviour
         }
         else
         {
-            Debug.Log("no farmers");
+           // Debug.Log("no farmers");
         }
 
 
@@ -221,19 +235,30 @@ public class population_growth : MonoBehaviour
     }
     public void CreatSceinces()
     {
-        if (unemployed <= pop && unemployed != 0)
+        if (unemployed <= pop && unemployed != 0 )
         {
-           researchers++;
+           education++;
+            researchPoints -= 50;
+           // educated += 1;
+            
           //  unemployed--;
+        }
+    }
+    public void createeducated()
+    {
+        if( researchPoints >= 50)
+        {
+            educated += 1;
+            researchPoints -= 50;
         }
     }
     public void fireresearcher()
     {
 
        
-        if(researchers > 0)
+        if(education > 0)
         {
-            researchers--;
+                education--;
           //  unemployed++;
         }
         else
@@ -242,11 +267,12 @@ public class population_growth : MonoBehaviour
         }
     }
     public void hiredoctors() {
-        if (unemployed <= pop && unemployed != 0)
+        if (educated >=1 && unemployed <= pop && unemployed != 0)
         
         {
             
             Medical++;
+            educated--;
         
         
         
@@ -257,13 +283,13 @@ public class population_growth : MonoBehaviour
     }
     public void fireDoctors()
     {
-        Medical--;
+      //  Medical--;
     }
     public void miltaryincrease()
     {
         if (unemployed <= pop && unemployed != 0)
         {
-          //++;
+          miltary++;
         }
     }
     public void checklosecondtion()
