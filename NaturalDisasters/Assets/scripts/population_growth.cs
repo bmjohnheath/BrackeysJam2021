@@ -6,17 +6,18 @@ using UnityEngine.UI;
 
 public class population_growth : MonoBehaviour
 {
-  public bool largepop;
-  public   bool hugepop;
-    public  bool smallpop; 
+  //public bool largepop;
+  //public   bool hugepop;
+    //public  bool smallpop; 
     public float populationGrowth;
+    public float populationcooldown;
     public float popincrease;
     public float pop;
     public float foodsupply;
    // public float research;
   //  public float reaCooldown;
     public float foodcooldown;
-     float maxfoodcooldown;
+   public  float maxfoodcooldown;
     public float FoodAllocuation;
     public float researchers;
     public float fooddecrease;
@@ -24,6 +25,8 @@ public class population_growth : MonoBehaviour
     public float unemployed;
     public float farmers;
     public float researchPoints;
+    public float populationboom;
+    public float chance;
   //  public float maxfloat; 
 
     void Start()
@@ -31,6 +34,7 @@ public class population_growth : MonoBehaviour
         unemployed = pop;
         maxfoodcooldown = 60;
         foodcooldown = maxfoodcooldown;
+        populationGrowth = populationcooldown;
         
     }
 
@@ -72,88 +76,88 @@ public class population_growth : MonoBehaviour
     }
 
 
-  public void  popullationcontrol()
-    {
-      if(pop > 100)
-        {
-            smallpop = true;
-
-        }
-
-      if(smallpop == true)
-        {
-            maxfoodcooldown = 60;
-        }
-      if(pop == 100)
-        {
-            smallpop = false;
-            hugepop = false;
-            largepop = true;
-
-        }
-
-      if(pop == 150)
-        {
-            hugepop = true;
-        }
-
-      if(hugepop == true)
-        {
-            smallpop = false;
-            largepop = false;
-            foodcooldown = 300;
-        }
-      if(largepop == true)
-        {
-            maxfoodcooldown = 150;
-        }
-     // if(researchers+farmers >= pop)
-        {
-
-        }
-
-
-    }
+ 
 
 
     public void CityGetBigger()
     {
         pop += foodsupply;
         unemployed += foodsupply;
-        populationGrowth = 1000;
-        if(foodsupply >= 0)
+       //
+       
+
+        if (foodsupply == pop)
         {
-            Debug.Log("city got bigger");
+
+            populationcooldown++;
+            populationGrowth = populationcooldown;
+            foodsupply -= pop;
+
+            pop += 20;
+            // babyboom();
+            chance = Random.Range(0, 6);
+            if(chance == 4)
+            {
+                babyboom();
+            }
+
+        }
+        else
+        {
+            foodsupply -= pop;
+            populationGrowth--;
+            populationGrowth = populationcooldown;
+            fooddecrease = Random.Range(0, 100);
+
+            pop -= fooddecrease;
+            checklosecondtion();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //if(foodsupply >= 0)
+        //{
+        //    Debug.Log("city got bigger");
 
 
-        }
-        if(foodsupply <= -1)
-        {
-            Debug.Log("city got smaller");
-        }
-        if(pop <= -1)
-        {
-            Debug.Log("game over");
-        }
+        //}
+        //if(foodsupply <= -1)
+        //{
+        //    Debug.Log("city got smaller");
+        //}
+        
+    }
+    public  void babyboom()
+    {
+        populationboom = Random.Range(0, 50);
+        pop += populationboom;
     }
     public void foodStorageChange()
     {
         //foodcooldown = 100;
-        if(foodsupply >= pop)
-        {
+       // if(foodsupply >= pop)
+        //{
             // CityGetBigger()
 
-            foodsupply += 1+ pop;
-            foodcooldown = 100;
-        }
-        if(foodsupply < pop)
-        {
-            fooddecrease = Random.Range(0, 8);
-            foodincrease = Random.Range(0, 12);
-            foodsupply -= fooddecrease;
-            foodsupply += foodincrease;
-            foodcooldown = 100;
-        }
+            foodsupply += 30;
+            foodcooldown = maxfoodcooldown ;
+        maxfoodcooldown++;
+        //}
+        //if(foodsupply < pop)
+        //{
+            //fooddecrease = Random.Range(0, 8);
+            //foodincrease = Random.Range(0, 12);
+            //foodsupply -= fooddecrease;
+            //foodsupply += foodincrease;
+            //foodcooldown = 100;
+        //}
         
     }
     public void workinfamr()
@@ -211,6 +215,14 @@ public class population_growth : MonoBehaviour
         else
         {
             Debug.Log("no farmers");
+        }
+    }
+
+    public void checklosecondtion()
+    {
+       if(pop <= 0)
+        {
+            Debug.Log("you lose game over");
         }
     }
 }
