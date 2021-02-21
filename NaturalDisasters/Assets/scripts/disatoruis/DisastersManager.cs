@@ -9,29 +9,41 @@ public class DisastersManager : MonoBehaviour
     public float timerLimit = 0;
    public float Timer = 0;
     public GameObject population;
-
+    public bool disatercanHappen;
 
 
     public void Start()
-    {
+    { 
         population = GameObject.FindGameObjectWithTag("pop");
+        disatercanHappen = true;
     }
 
 
 
     private void Update()
-    {
-        Timer += Time.deltaTime * 1;
-        if (Timer >= timerLimit)
+    {   
+
+        if(disatercanHappen == true)
         {
-            GenerateDisaster();
-            Timer = 0;
+
+            Timer += Time.deltaTime * 1;
+            if (Timer >= timerLimit)
+            {
+                GenerateDisaster();
+                Timer = 0;
+            }
         }
+        //Timer += Time.deltaTime * 1;
+        //if (Timer >= timerLimit)
+        //{
+        //    GenerateDisaster();
+        //    Timer = 0;
+        //}
     }
 
     public void GenerateDisaster()
     {
-        int d = Random.Range(0, 14);
+        int d = Random.Range(-1, 3);
        // population.GetComponent<Disasters>();
         switch (d)
         {

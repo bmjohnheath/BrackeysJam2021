@@ -47,9 +47,18 @@ public class population_growth : MonoBehaviour
     [Header("miltary & defense")]
     public float miltary;
     public float defense;
-
+    public float DamagedDefense;
     [Header("diastours")]
-    public bool diasatouri;
+    public bool diasatouri = false;
+    public bool tornado = false;
+    public bool SharkTornodo = false;
+    public bool Earthquake =false;
+   // public float catogory;
+    public GameObject DisasterControler;
+    public bool diasasterinprogress;
+    public float disatormeter;
+    //public float disatortimer;
+    public float disatorreduction;
     //  public float maxfloat; 
 
     void Start()
@@ -59,7 +68,8 @@ public class population_growth : MonoBehaviour
         foodcooldown = maxfoodcooldown;
         populationGrowth = populationcooldown;
         sickness = sicknessstart;
-        
+
+        DisasterControler = GameObject.FindGameObjectWithTag("Disaster");
     }
 
     // Update is called once per frame
@@ -67,7 +77,7 @@ public class population_growth : MonoBehaviour
     {
         //sicknessdecrease =  
         researchPoints += 10*Time.deltaTime + education * Time.deltaTime;
-        defense = miltary * 10;
+        defense = (miltary * 10) - DamagedDefense;
         foodcooldown -= farmers *Time.deltaTime;
         unemployed = pop - farmers - education - Medical -miltary-educated;
        
@@ -95,7 +105,50 @@ public class population_growth : MonoBehaviour
             sickness = sicknessstart;
             deathfromtheflu();
         }
-             
+        if(diasasterinprogress == true)
+        {
+           
+            if(tornado == true)
+            {
+                populationdieing(1);
+            }
+            if(SharkTornodo == true)
+            {
+               //isatormeter = 100;
+                populationdieing(3);
+            }
+            if(Earthquake == true)
+            {
+                earthquakedefese(3);
+            }
+            
+            
+            
+            disatormeter -= disatorreduction*Time.deltaTime;
+           
+        }
+
+
+        if (disatormeter <= 0)
+        {
+            Debug.Log("is triggering");
+            DisasterControler.GetComponent<DisastersManager>().disatercanHappen = true;
+            if (tornado == true)
+            {
+                tornado = false;
+            }
+            if(SharkTornodo == true)
+            {
+                SharkTornodo = false;
+            }
+            if(Earthquake == true)
+            {
+                Earthquake = false;
+            }
+            diasasterinprogress = false;
+            disatormeter = 100;
+        }
+
     }
 
 
@@ -112,9 +165,9 @@ public class population_growth : MonoBehaviour
     public void CityGetBigger()
     {
         pop += popincrease;
-       // unemployed += foodsupply;
-       //
-       
+        // unemployed += foodsupply;
+        //
+
 
         if (foodsupply >= pop)
         {
@@ -126,14 +179,14 @@ public class population_growth : MonoBehaviour
 
             pop += 20;
             // babyboom();
-            if(populationcooldown <= 0)
+            if (populationcooldown <= 0)
             {
                 populationcooldown = 100;
             }
-            
-            
+
+
             chance = Random.Range(0, 6);
-            if(chance == 4)
+            if (chance == 4)
             {
                 babyboom();
             }
@@ -152,19 +205,116 @@ public class population_growth : MonoBehaviour
             checklosecondtion();
 
         }
+
+    } 
         
         
+      public void Tornoto(float catogory)
+      {
+
+        DisasterControler.GetComponent<DisastersManager>().disatercanHappen = false;
+        catogory = Random.Range(0, 6);
         
+        if(catogory == 1)
+        {
+            disatormeter = 30;
+            tornado = true;
+        }
+        if (catogory == 2)
+        {
+            disatormeter = 60;
+            tornado = true;
+        }
+        if (catogory == 3)
+        {
+            disatormeter = 90;
+            tornado = true;
+        }
+        if (catogory == 4)
+        {
+            disatormeter = 180;
+            tornado = true;
+        }
+        if (catogory == 5)
+        {
+            disatormeter = 250;
+            tornado = true;
+        }
+        diasasterinprogress = true;
+
+      }  
         
-        
-        
-        
-        
-        
-        
+
+
+    public void SharTornoto()
+    {
+        disatormeter = 100;
+
+        DisasterControler.GetComponent<DisastersManager>().disatercanHappen = false;
        
-        
+        diasasterinprogress = true;
     }
+
+
+    public void EarthQuake(float catogory)
+    {
+
+        DisasterControler.GetComponent<DisastersManager>().disatercanHappen = false;
+        catogory = Random.Range(0, 6);
+
+        if (catogory == 1)
+        {
+            disatormeter = 10;
+            Earthquake = true;
+        }
+        if (catogory == 2)
+        {
+            disatormeter = 25;
+            Earthquake = true;
+        }
+        if (catogory == 3)
+        {
+            disatormeter = 40;
+            Earthquake = true;
+        }
+        if (catogory == 4)
+        {
+            disatormeter = 60;
+            Earthquake = true;
+        }
+        if (catogory == 5)
+        {
+            disatormeter = 90;
+            Earthquake = true;
+        }
+        diasasterinprogress = true;
+    }
+
+
+   public void earthquakedefese(float lowerdefense)
+    {
+      
+        if(defense >= 0)
+        {
+            defense -= lowerdefense * Time.deltaTime;
+        }
+        if(defense <= 0)
+        {
+            populationdieing(lowerdefense + 3);
+        }
+    }
+    
+    public void populationdieing(float deaths)
+       {
+        pop -= deaths*Time.deltaTime;
+       } 
+        
+       public void repairdefense()
+    {
+
+    } 
+   
+         
     public  void babyboom()
     {
         populationboom = Random.Range(0, pop);

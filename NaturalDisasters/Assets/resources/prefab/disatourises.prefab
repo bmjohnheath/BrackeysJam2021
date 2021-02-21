@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 168106074560589373}
   - component: {fileID: 6865113945888190149}
-  - component: {fileID: 1287713964}
   m_Layer: 0
   m_Name: disatourises
   m_TagString: Untagged
@@ -44,17 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f456cb842c5fb964682b9eb091afda34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disasters: []
   timerLimit: 10
---- !u!114 &1287713964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2580214336288380593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c54ced827ad2d04fb6b4324b9f3b1f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Timer: 0
+  population: {fileID: 0}

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Disasters : MonoBehaviour
 {
-       
+    // public population_growth pop;
+    public float catagory;
     public  void Tornato()
     {
         print("Toronto");
-
+        GetComponent<population_growth>().Tornoto(catagory);
         // Population decrease
         // City damage
 
@@ -16,7 +17,10 @@ public class Disasters : MonoBehaviour
 
     public  void Shark_tornados()
     {
+       
+        
         print("Shark_tornados");
+        GetComponent<population_growth>().SharTornoto();
         //Population decrease
         // City damage
     }
@@ -24,6 +28,8 @@ public class Disasters : MonoBehaviour
     public  void Earthquake()
     {
         print("Earthquake");
+        GetComponent<population_growth>().EarthQuake(catagory);
+        
         // City damage
         //Population decrease
     }

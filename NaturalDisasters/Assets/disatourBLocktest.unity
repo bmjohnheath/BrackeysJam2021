@@ -262,7 +262,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8062050506262481741}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 469943734}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832ffe30fed1ad54a9bbff6b9e02d9f4, type: 3}
@@ -963,6 +963,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335163312}
   m_CullTransparentMesh: 0
+--- !u!1 &469943734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8062050506227628885, guid: 82785bcdedbe3d54db92fec8cae0f928,
+    type: 3}
+  m_PrefabInstance: {fileID: 8062050506262481741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &469943736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469943734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c54ced827ad2d04fb6b4324b9f3b1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catagory: 0
 --- !u!1 &595715350
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,8 +2965,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: disatourises
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1287713964, guid: b9616d1ecf058654ca9afbf19cdf9024, type: 3}
+    - target: {fileID: 2580214336288380593, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_TagString
+      value: Disaster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865113945888190149, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: timerLimit
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9616d1ecf058654ca9afbf19cdf9024, type: 3}
 --- !u!1001 &8062050506262481741
 PrefabInstance:
@@ -2956,6 +2984,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: pop
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: foodsupply
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: disatormeter
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: disatortimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
+        type: 3}
+      propertyPath: disatorreduction
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8062050506227628885, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
       propertyPath: m_Name
