@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class DisastersManager : MonoBehaviour
 {
-    [SerializeField] List<Disaster> disasters;
-    Disasters disaster;
+    //[SerializeField] List<Disaster> disasters;
+    //Disasters disaster;
     public float timerLimit = 0;
-    float Timer = 0;
-    
+   public float Timer = 0;
+    public GameObject population;
+
+
+
+    public void Start()
+    {
+        population = GameObject.FindGameObjectWithTag("pop");
+    }
+
+
+
     private void Update()
     {
         Timer += Time.deltaTime * 1;
@@ -21,51 +31,79 @@ public class DisastersManager : MonoBehaviour
 
     public void GenerateDisaster()
     {
-        int d = Random.Range(0, disasters.Capacity);
-
+        int d = Random.Range(0, 14);
+       // population.GetComponent<Disasters>();
         switch (d)
         {
             case 0:
                 //Disasters.Tornato();
+                population.GetComponent<Disasters>().Tornato();
                 break;
             case 1:
-                Disasters.Shark_tornados();
+
+                  population.GetComponent<Disasters>().Shark_tornados();
+                //  population.Disasters.Shark_tornados();
                 break;
             case 2:
-                Disasters.Earthquake();
+                population.GetComponent<Disasters>().Earthquake();
+
+                // Disasters.Earthquake();
+
                 break;
             case 3:
-                Disasters.Tsunami();
+
+                population.GetComponent<Disasters>().Tsunami();
+                //  Disasters.Tsunami();
                 break;
             case 4:
-                Disasters.Aliens();
+
+                population.GetComponent<Disasters>().Aliens();
+                //  Disasters.Aliens();
                 break;
             case 5:
-                Disasters.War();
+
+                population.GetComponent<Disasters>().War();
+                //  Disasters.War();
                 break;
             case 6:
-                Disasters.Rabbis();
+
+                population.GetComponent<Disasters>().Rabbis();
+                //  Disasters.Rabbis();
                 break;
             case 7:
-                Disasters.Pandemic();
+
+                population.GetComponent<Disasters>().Pandemic();
+                // Disasters.Pandemic();
                 break;
             case 8:
-                Disasters.Ice_Age();
+
+                population.GetComponent<Disasters>().Ice_Age();
+                //  Disasters.Ice_Age();
                 break;
             case 9:
-                Disasters.Mass_food_poisoning();
+
+                population.GetComponent<Disasters>().Mass_food_poisoning();
+                //  Disasters.Mass_food_poisoning();
                 break;
             case 10:
-                Disasters.Godzilla();
+
+                population.GetComponent<Disasters>().Godzilla();
+                //  Disasters.Godzilla();
                 break;
             case 11:
-                Disasters.Giant_spriked_hail();
+
+                population.GetComponent<Disasters>().Giant_spriked_hail();
+                //   Disasters.Giant_spriked_hail();
                 break;
             case 12:
-                Disasters.Rogue_Rugby_Players();
+                population.GetComponent<Disasters>().Rogue_Rugby_Players();
+
+                //  Disasters.Rogue_Rugby_Players();
                 break;
             case 13:
-                Disasters.Falling_Shy();
+
+                population.GetComponent<Disasters>().Falling_Shy();
+                //  Disasters.Falling_Shy();
                 break;
         }
 

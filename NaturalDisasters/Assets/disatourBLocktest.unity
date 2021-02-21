@@ -2879,6 +2879,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106864431}
   m_CullTransparentMesh: 0
+--- !u!1001 &1273680455985079663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1030
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 259.9335
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -572.6875
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 168106074560589373, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2580214336288380593, guid: b9616d1ecf058654ca9afbf19cdf9024,
+        type: 3}
+      propertyPath: m_Name
+      value: disatourises
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1287713964, guid: b9616d1ecf058654ca9afbf19cdf9024, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: b9616d1ecf058654ca9afbf19cdf9024, type: 3}
 --- !u!1001 &8062050506262481741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2886,31 +2956,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: pop
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: Medical
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: foodsupply
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: sicknessdecrease
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062050506227628884, guid: 82785bcdedbe3d54db92fec8cae0f928,
-        type: 3}
-      propertyPath: deathFromsicknessmultiplyer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8062050506227628885, guid: 82785bcdedbe3d54db92fec8cae0f928,
         type: 3}
       propertyPath: m_Name

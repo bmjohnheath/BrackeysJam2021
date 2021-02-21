@@ -47,8 +47,9 @@ public class population_growth : MonoBehaviour
     [Header("miltary & defense")]
     public float miltary;
     public float defense;
-  
-  
+
+    [Header("diastours")]
+    public bool diasatouri;
     //  public float maxfloat; 
 
     void Start()

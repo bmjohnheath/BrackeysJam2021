@@ -5,7 +5,7 @@ using UnityEngine;
 public class Disasters : MonoBehaviour
 {
        
-    public static void Tornato(ref int decPopulation , ref int decCityIntegrity)
+    public  void Tornato()
     {
         print("Toronto");
 
@@ -14,78 +14,78 @@ public class Disasters : MonoBehaviour
 
     }
 
-    public static void Shark_tornados()
+    public  void Shark_tornados()
     {
         print("Shark_tornados");
         //Population decrease
         // City damage
     }
 
-    public static void Earthquake()
+    public  void Earthquake()
     {
         print("Earthquake");
         // City damage
         //Population decrease
     }
 
-    public static void Tsunami()
+    public  void Tsunami()
     {
         print("Tsunami");
         // City damage
         //Population decrease
     }
 
-    public static void Aliens()
+    public void Aliens()
     {
         print("Aliens");
         // City damage
         //Population decrease
     }
-    public static void War()
+    public  void War()
     {
         print("War");
         // City damage
         //Warrier Population decrease
     }
-    public static void Rabbis()
+    public void Rabbis()
     {
         print("Rabbis");
         //Population decrease
     }
-    public static void Pandemic()
+    public  void Pandemic()
     {
         print("Pandemic");
         //Population decrease
     }
 
-    public static void Ice_Age()
+    public  void Ice_Age()
     {
         print("Ice_Age");
         //Population decrease
     }
-    public static void Mass_food_poisoning()
+    public  void Mass_food_poisoning()
     {
         print("Mass_food_poisoning");
         //Population decrease
     }
-    public static void Godzilla()
+    public  void Godzilla()
     {
         print("Godzilla");
         //Population decrease
         // City damage
     }
-    public static void Giant_spriked_hail()
+    public  void Giant_spriked_hail()
     {
         print("Toronto");
         //Population decrease
     }
-    public static void Rogue_Rugby_Players()
+    public  void Rogue_Rugby_Players()
     {
         print("Giant_spriked_hail");
         //Population decrease
     }
 
-    public static void Falling_Shy()
+    public  void Falling_Shy()
     {
         print("Falling_Shy");
         //Population decrease

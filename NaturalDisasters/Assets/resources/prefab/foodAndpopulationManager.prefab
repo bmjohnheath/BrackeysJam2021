@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8062050506227628884}
   m_Layer: 0
   m_Name: foodAndpopulationManager
-  m_TagString: Untagged
+  m_TagString: pop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,17 +51,20 @@ MonoBehaviour:
   populationboom: 0
   populationdecrease: 0
   chance: 0
-  foodsupply: 100
+  foodsupply: 150
   foodcooldown: 0
   maxfoodcooldown: 0
   fooddecrease: 0
   foodincrease: 0
   farmers: 0
   sickness: 0
-  sicknessdecrease: 0
+  sicknessdecrease: 1
   sicknessstart: 300
   Medical: 0
-  researchers: 0
+  education: 0
   researchPoints: 0
+  educated: 0
+  deathfromsickness: 0
+  deathFromsicknessmultiplyer: 10
   miltary: 0
   defense: 0
